@@ -9,6 +9,7 @@ var app = app || {};
 
     app.taskCreator.prototype.initialize = function(htmlInput) {
         this.taskInput = new app.taskInput(htmlInput);
+        this.taskList = new app.taskList('#todo-list');
 
         this.addEventListeners();
     };
@@ -17,7 +18,7 @@ var app = app || {};
         this.taskInput.on('enter', this.addTask.bind(this));
     };
 
-    app.taskCreator.prototype.addTask = function() {
-        console.log('adding task');
+    app.taskCreator.prototype.addTask = function(e, text) {
+        this.taskList.addOne(text);
     };
 } ());

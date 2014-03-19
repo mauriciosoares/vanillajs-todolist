@@ -26,7 +26,10 @@ var app = app || {};
             return;
         }
 
-        // console.log(e.target.value);
-        this.emitter.trigger('enter');
+        var text = e.target.value;
+
+        e.target.value = '';
+
+        this.emitter.trigger('enter', text);
     };
 } ());
